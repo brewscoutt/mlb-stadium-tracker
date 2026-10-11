@@ -1,0 +1,98 @@
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.badge {
+  --team-primary: #888888;
+  --team-secondary: #aaaaaa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 10px 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.badge:hover {
+  transform: translateY(-2px);
+}
+
+.badge:active {
+  transform: translateY(0);
+}
+
+.badge-icon {
+  width: 100%;
+  max-width: 108px;
+  aspect-ratio: 18 / 14;
+}
+
+.stadium-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: grayscale(1) opacity(0.4) brightness(1.05);
+  transition: filter 0.35s ease;
+}
+
+.px-structure { fill: var(--team-primary); }
+.px-crowd { fill: var(--team-secondary); }
+.px-field { fill: #3fa34d; }
+.px-dirt { fill: #c9975b; }
+.px-outline { fill: #1a1a1a; }
+.px-scoreboard { fill: #1a1a1a; }
+.px-light { fill: #6b6b6b; transition: fill 0.35s ease; }
+
+.badge.visited .stadium-svg {
+  filter: grayscale(0) opacity(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+.badge.visited .px-light {
+  fill: #ffe066;
+}
+
+.badge.visited {
+  border-color: var(--team-primary);
+  box-shadow: 0 0 0 1px var(--team-primary) inset;
+}
+
+.badge.just-toggled .badge-icon {
+  animation: badge-pop 0.35s ease;
+}
+
+@keyframes badge-pop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.22); }
+  100% { transform: scale(1); }
+}
+
+.badge-labels {
+  min-height: 0;
+}
+
+.badge-team {
+  font-weight: 700;
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+.badge-stadium {
+  font-size: 0.68rem;
+  color: var(--muted);
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge, .stadium-svg, .badge.just-toggled .badge-icon {
+    animation: none !important;
+    transition: none !important;
+  }
+}

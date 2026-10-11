@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MLB Stadium Tracker &mdash; Former Parks</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>⚾ Former Parks</h1>
+    <p class="subtitle">Retired ballparks from the last few decades &mdash; the ones you might have actually been to.</p>
+    <nav class="view-nav">
+      <a href="index.html">List</a>
+      <a href="collection.html">Collection</a>
+      <a class="active" href="former.html">Former Parks</a>
+    </nav>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+      <span id="progressText" class="progress-text">0 / 20 visited</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Search team, stadium, or city..." autocomplete="off">
+      <div class="filters">
+        <select id="visitedFilter">
+          <option value="">All Stadiums</option>
+          <option value="visited">Visited</option>
+          <option value="unvisited">Not Visited</option>
+        </select>
+        <select id="sortBy">
+          <option value="team">Sort: Team Name</option>
+          <option value="closed">Sort: Year Closed</option>
+          <option value="visited">Sort: Visited First</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <footer>
+    <p>Covers parks retired roughly since 1989 &mdash; not the full history of MLB ballparks. Your data is stored locally in this browser only.</p>
+  </footer>
+
+  <script src="former-stadiums.js"></script>
+  <script src="storage.js"></script>
+  <script src="former.js"></script>
+</body>
+</html>
